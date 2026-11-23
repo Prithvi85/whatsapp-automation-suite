@@ -1,0 +1,29 @@
+{
+  "name": "whatsapp-automation-suite",
+  "version": "1.0.0",
+  "description": "Production-grade WhatsApp Automation & Concierge Widgets with multi-brand Next.js support, Meta Cloud API, and smart contextual routing.",
+  "main": "scripts/batch-dispatcher.js",
+  "scripts": {
+    "start": "node scripts/batch-dispatcher.js",
+    "send:cloud": "node scripts/cloud-api-sender.js",
+    "extract": "node scripts/extract-contacts.js"
+  },
+  "keywords": [
+    "whatsapp",
+    "whatsapp-automation",
+    "whatsapp-widget",
+    "nextjs",
+    "react",
+    "lead-generation",
+    "meta-cloud-api",
+    "chat-widget",
+    "customer-support"
+  ],
+  "author": "Prithwish Saha <contact@psdigilabs.in>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "next": ">=13.0.0"
+  }
+}

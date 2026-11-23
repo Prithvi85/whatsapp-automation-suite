@@ -1,0 +1,32 @@
+[
+  {
+    "id": "psdigilabs",
+    "name": "PSDigiLabs",
+    "category": "Digital Product Engineering & Web Development",
+    "website": "https://www.psdigilabs.in",
+    "phone": "+916289482083",
+    "clean_phone": "916289482083",
+    "email": "contact@psdigilabs.in",
+    "default_message": "Hi PSDigiLabs, I visited psdigilabs.in and would like to discuss engineering a website or digital product."
+  },
+  {
+    "id": "creative-monks",
+    "name": "Creative Monks",
+    "category": "Wedding Photography & Cinematography Studio",
+    "website": "https://www.creativemonks.in",
+    "phone": "+917003797652",
+    "clean_phone": "917003797652",
+    "email": "contact@creativemonks.in",
+    "default_message": "Hello Creative Monks team, I came across your portfolio on creativemonks.in and would like to enquire about your services."
+  },
+  {
+    "id": "ritika-jaiswal",
+    "name": "Ritika Jaiswal Fashion",
+    "category": "Luxury Couture & Bridal Atelier",
+    "website": "https://www.ritikajaiswalfashion.com",
+    "phone": "+919123759949",
+    "clean_phone": "919123759949",
+    "email": "ritikajaiswalfashion@gmail.com",
+    "default_message": "Hello Ritika Jaiswal Atelier, I checked your website ritikajaiswalfashion.com and wanted to enquire about your couture collection."
+  }
+]
