@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Integration & Automation Hub | Ritika Jaiswal, PS DigiLabs, Creative Monks</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar / Brand Selector -->
+    <aside class="sidebar">
+      <div class="brand-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 32 32" width="24" height="24" fill="#25D366">
+            <path d="M16 2.5C8.544 2.5 2.5 8.544 2.5 16c0 2.658.766 5.14 2.088 7.234L3.1 29.5l6.452-1.458A13.438 13.438 0 0 0 16 29.5c7.456 0 13.5-6.044 13.5-13.5S23.456 2.5 16 2.5zm7.886 19.387c-.328.92-1.636 1.76-2.27 1.874-.608.109-1.393.155-2.25-.122a18.23 18.23 0 0 1-5.698-3.52 16.033 16.033 0 0 1-3.69-4.595c-.417-.7-.442-1.353-.122-1.928.293-.526.837-.84 1.258-.84.205 0 .39.014.542.023.442.02.664.048.958.749.369.88 1.268 3.088 1.378 3.313.111.226.185.49.037.787-.148.297-.222.483-.442.743-.222.26-.466.58-.665.779-.222.222-.454.463-.195.908.26.444 1.157 1.906 2.486 3.09 1.71 1.524 3.151 1.996 3.595 2.218.444.222.703.185.962-.111.26-.297 1.11-1.296 1.406-1.74.296-.445.592-.37.999-.223.407.149 2.59 1.222 3.034 1.444.444.222.74.333.851.518.11.186.11 1.074-.218 1.994z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="logo-title">WA Automation Hub</div>
+          <div class="logo-sub">Enterprise Multi-Tenant</div>
+        </div>
+      </div>
+
+      <div class="section-label">Select Brand Integration</div>
+      <nav class="brand-nav">
+        <button class="nav-brand-card active" data-brand="ritika-jaiswal">
+          <div class="brand-badge luxury">Couture Atelier</div>
+          <div class="nav-brand-name">Ritika Jaiswal Fashion</div>
+          <div class="nav-brand-meta">www.ritikajaiswalfashion.com</div>
+          <div class="nav-brand-phone">📞 +91 92375 9949</div>
+        </button>
+
+        <button class="nav-brand-card" data-brand="ps-digilabs">
+          <div class="brand-badge tech">Tech & Growth</div>
+          <div class="nav-brand-name">PS DigiLabs</div>
+          <div class="nav-brand-meta">www.psdigilabs.in</div>
+          <div class="nav-brand-phone">📞 +91 62894 82083</div>
+        </button>
+
+        <button class="nav-brand-card" data-brand="creative-monks">
+          <div class="brand-badge photo">Dual Line Studio</div>
+          <div class="nav-brand-name">Creative Monks</div>
+          <div class="nav-brand-meta">www.creativemonks.in</div>
+          <div class="nav-brand-phone">📞 +91 70037 97652 / 90385 16799</div>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-indicator">
+          <span class="pulse-dot" id="sidebar-gateway-dot"></span>
+          <span id="sidebar-gateway-status">Gateway: Initializing...</span>
+        </div>
+        <div class="status-indicator" style="margin-top: 6px;">
+          <span class="pulse-dot" style="background:#0066FF;"></span>
+          <span id="active-leads-count">Captured Leads: 0</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div>
+          <h1 id="brand-header-title">Ritika Jaiswal Fashion</h1>
+          <p id="brand-header-desc" class="subtext">Luxury Bridal Couture & Atelier Appointment Automation</p>
+        </div>
+        <div class="header-actions">
+          <a id="brand-website-link" href="https://www.ritikajaiswalfashion.com" target="_blank" class="btn-outline">
+            Visit Website &nearr;
+          </a>
+          <a id="btn-open-real-wa" href="#" target="_blank" class="btn-primary" style="display:flex; align-items:center; gap:6px; text-decoration:none;">
+            <span>Open in WhatsApp</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+            </svg>
+          </a>
+        </div>
+      </header>
+
+      <!-- LIVE WHATSAPP WEB PHONE PAIRING GATEWAY BANNER -->
+      <div class="gateway-banner" id="gateway-banner">
+        <div class="gateway-info">
+          <div class="flex-center gap-2">
+            <span class="pulse-dot" id="gateway-status-dot"></span>
+            <h3 style="font-size: 16px; font-weight: 700; color:#FFFFFF;" id="gateway-heading">
+              📱 Live Mobile WhatsApp Pairing Gateway
+            </h3>
+          </div>
+          <p style="font-size: 13px; color: #D1D5DB; margin-top: 6px; line-height:1.5;" id="gateway-description">
+            To make automated replies reflect inside your <strong>real mobile WhatsApp app</strong>, link your phone here!
+            <br>
+            On your phone, open <strong>WhatsApp &gt; Linked Devices &gt; Link a Device</strong> and scan the QR code to the right.
+          </p>
+          <div id="gateway-connected-details" style="display:none; margin-top:10px;">
+            <div style="font-size: 13px; color:#25D366; font-weight:700;" id="gateway-connected-number">🟢 Connected to: +91...</div>
+            <div style="font-size: 12px; color:#9CA3AF; margin-top:2px;">Chatbot is active and replying live to incoming WhatsApp messages!</div>
+            <button id="btn-gateway-logout" class="btn-text" style="color:#EF4444; margin-top:6px; text-decoration:underline;">Disconnect / Link Another Phone</button>
+          </div>
+        </div>
+        <div class="gateway-qr-box" id="gateway-qr-box">
+          <img id="gateway-qr-image" src="" alt="Scan QR Code" class="gateway-qr-img" />
+          <div id="gateway-qr-spinner" style="font-size: 12px; color:#9CA3AF; padding: 20px; text-align:center;">
+            Generating WhatsApp QR...
+          </div>
+          <div style="font-size: 10.5px; color:#6B7280; text-align:center; margin-top:4px;">WhatsApp &gt; Linked Devices</div>
+        </div>
+      </div>
+
+      <!-- Grid Columns: Simulator & Integration Code -->
+      <div class="dashboard-grid">
+        <!-- Interactive Chat Simulator -->
+        <div class="card simulator-card">
+          <div class="card-header">
+            <div class="flex-center gap-2">
+              <span class="sim-pill">Live WhatsApp Chat Simulator</span>
+              <span id="sim-phone-badge" class="badge-tag">+91 92375 9949</span>
+            </div>
+            <button id="sim-reset-btn" class="btn-text">Reset Chat</button>
+          </div>
+
+          <!-- WhatsApp Chat Window Simulation -->
+          <div class="wa-mockup">
+            <div class="mockup-header" id="mockup-header">
+              <img id="mockup-avatar" src="" alt="Avatar" class="mockup-avatar" />
+              <div class="mockup-info">
+                <div id="mockup-title" class="mockup-title">Ritika Jaiswal Fashion</div>
+                <div id="mockup-sub" class="mockup-sub">Online • Replies immediately</div>
+              </div>
+            </div>
+
+            <div class="mockup-body" id="mockup-messages">
+              <!-- Messages injected here dynamically -->
+            </div>
+
+            <!-- Pre-defined quick chips -->
+            <div class="mockup-quick-chips" id="mockup-quick-chips">
+              <!-- Chips injected here -->
+            </div>
+
+            <div class="mockup-footer">
+              <input type="text" id="mockup-input" placeholder="Type a message or select an option..." />
+              <button id="mockup-send" class="btn-send">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Integration Snippets & Features -->
+        <div class="card integration-card">
+          <div class="card-header">
+            <h3>Website Embed & Integration Code</h3>
+            <span class="copy-badge">Ready to Deploy</span>
+          </div>
+
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="embed">1-Line Embed Code</button>
+            <button class="tab-btn" data-tab="mobile">Mobile Automation</button>
+            <button class="tab-btn" data-tab="flow">Automation Specs</button>
+            <button class="tab-btn" data-tab="leads">Captured Leads</button>
+            <button class="tab-btn" data-tab="audits">Site Audits &amp; USD Orders</button>
+            <button class="tab-btn" data-tab="webhook">Meta API Webhook</button>
+          </div>
+
+          <!-- Tab: Embed Code -->
+          <div class="tab-pane active" id="tab-embed">
+            <p class="tab-desc">Paste this script snippet immediately before the closing <code>&lt;/body&gt;</code> tag of your website (Shopify, WordPress, Webflow, or custom HTML):</p>
+            <div class="code-container">
+              <pre><code id="embed-code-block"></code></pre>
+              <button class="btn-copy" id="btn-copy-embed">Copy Code</button>
+            </div>
+
+            <div class="features-box">
+              <h4>Included Integrations for this Brand:</h4>
+              <ul id="brand-feature-list" class="feature-checklist">
+                <!-- Features dynamically inserted -->
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tab: Mobile Automation Setup -->
+          <div class="tab-pane" id="tab-mobile">
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <div style="background:rgba(37,211,102,0.06); border:1px solid rgba(37,211,102,0.2); border-radius:8px; padding:16px;">
+                <h4 style="color:#25D366; font-size:15px; margin-bottom:8px;">How Real Mobile WhatsApp Automation Operates</h4>
+                <p style="font-size:13px; color:#D1D5DB; line-height:1.6;">
+                  When a customer clicks your website widget or scans the QR code, their phone opens WhatsApp with the exact pre-filled message. For your number to <strong>automatically reply back inside their WhatsApp</strong>, choose one of these two proven production methods:
+                </p>
+              </div>
+
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:16px;">
+                <h4 style="font-size:14px; font-weight:700; color:#FFFFFF; margin-bottom:6px;">Method A: WhatsApp Web QR Pairing (Linked Devices)</h4>
+                <p style="font-size:13px; color:#9CA3AF; margin-bottom:10px;">
+                  Scan the QR code at the top of this dashboard using <strong>WhatsApp &gt; Linked Devices &gt; Link a Device</strong>. Once linked, the server automatically reads incoming texts and replies directly into your customer chats!
+                </p>
+              </div>
+
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:16px;">
+                <h4 style="font-size:14px; font-weight:700; color:#FFFFFF; margin-bottom:6px;">Method B: Meta WhatsApp Cloud API (Graph API v21.0)</h4>
+                <p style="font-size:13px; color:#9CA3AF; margin-bottom:10px;">
+                  For enterprise interactive buttons, interactive lists, and official green-tick business numbers via Meta:
+                </p>
+                <ol style="padding-left:18px; font-size:13px; color:#D1D5DB; display:flex; flex-direction:column; gap:6px;">
+                  <li>Connect your phone number on <a href="https://developers.facebook.com" target="_blank" style="color:#0066FF;">Meta Developer Portal</a>.</li>
+                  <li>Point your Meta Webhook to your public domain (e.g. <code>https://your-domain.com/api/webhook</code>).</li>
+                  <li>Enter your Meta Access Token into <code>.env</code>.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab: Automation Specs -->
+          <div class="tab-pane" id="tab-flow">
+            <div id="flow-specs-content"></div>
+          </div>
+
+          <!-- Tab: Captured Leads -->
+          <div class="tab-pane" id="tab-leads">
+            <div class="leads-table-wrapper">
+              <table class="leads-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Customer</th>
+                    <th>Phone</th>
+                    <th>Inquiry Details</th>
+                    <th>Source</th>
+                  </tr>
+                </thead>
+                <tbody id="leads-tbody">
+                  <tr><td colspan="5" style="text-align:center; padding: 20px; color:#6B7280;">No leads captured yet. Send a message in the simulator!</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab: Site Audits & USD Orders -->
+          <div class="tab-pane" id="tab-audits">
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;">
+                <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:12px;">
+                  <div style="font-size:11px; color:#9CA3AF;">USD Revenue</div>
+                  <div id="rev-total-usd" style="font-size:20px; font-weight:800; color:#10B981;">$0</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px;">
+                  <div style="font-size:11px; color:#9CA3AF;">Paid Orders</div>
+                  <div id="rev-paid-count" style="font-size:20px; font-weight:800; color:#FFF;">0</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px;">
+                  <div style="font-size:11px; color:#9CA3AF;">Avg Ticket</div>
+                  <div id="rev-avg-usd" style="font-size:20px; font-weight:800; color:#38BDF8;">$0</div>
+                </div>
+              </div>
+
+              <form id="dashboard-audit-form" style="display:flex; gap:8px; flex-wrap:wrap; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px;">
+                <input type="text" id="dash-audit-url" required placeholder="Enter prospect URL (e.g. https://example.com)" style="flex:2; min-width:180px; padding:9px 12px; background:#0B1120; border:1px solid #334155; border-radius:6px; color:#FFF; font-size:13px;" />
+                <select id="dash-audit-goal" style="flex:1; min-width:130px; padding:9px 10px; background:#0B1120; border:1px solid #334155; border-radius:6px; color:#FFF; font-size:13px;">
+                  <option value="Leads & Conversions">Leads &amp; CRO</option>
+                  <option value="E-Commerce Sales">E-Commerce</option>
+                  <option value="Organic Traffic & SEO">SEO &amp; Speed</option>
+                </select>
+                <button type="submit" id="dash-audit-btn" class="btn-primary" style="padding:9px 14px; font-size:13px;">Run Audit</button>
+              </form>
+              <div id="dash-audit-feedback" style="display:none; font-size:12.5px; padding:10px 12px; border-radius:6px; background:rgba(0,102,255,0.12); border:1px solid rgba(0,102,255,0.3); color:#E2E8F0;"></div>
+
+              <div class="leads-table-wrapper">
+                <table class="leads-table">
+                  <thead>
+                    <tr>
+                      <th>Domain</th>
+                      <th>Score</th>
+                      <th>Offer</th>
+                      <th>Payment</th>
+                      <th>Report</th>
+                    </tr>
+                  </thead>
+                  <tbody id="audits-tbody">
+                    <tr><td colspan="5" style="text-align:center; padding:18px; color:#6B7280;">No site audits yet. Run one above or send a URL in PS DigiLabs chat!</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab: Webhook Setup -->
+          <div class="tab-pane" id="tab-webhook">
+            <div class="webhook-guide">
+              <h4>Meta WhatsApp Cloud API Webhook Details</h4>
+              <p>When creating your Meta Developer App, configure your Webhook under <strong>WhatsApp &gt; Configuration</strong>:</p>
+              
+              <div class="config-row">
+                <span class="config-label">Callback URL:</span>
+                <code class="config-val" id="webhook-url-val">https://your-domain.com/api/webhook</code>
+              </div>
+              <div class="config-row">
+                <span class="config-label">Verify Token:</span>
+                <code class="config-val">antigravity_wa_secure_token_2026</code>
+              </div>
+              <div class="config-row">
+                <span class="config-label">Webhook Fields:</span>
+                <code class="config-val">messages, messaging_postbacks, message_template_status_update</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

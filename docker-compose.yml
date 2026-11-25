@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  whatsapp-automation:
+    build: .
+    container_name: whatsapp-automation-suite
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data

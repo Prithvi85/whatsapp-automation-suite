@@ -1,29 +1,31 @@
 {
   "name": "whatsapp-automation-suite",
   "version": "1.0.0",
-  "description": "Production-grade WhatsApp Automation & Concierge Widgets with multi-brand Next.js support, Meta Cloud API, and smart contextual routing.",
-  "main": "scripts/batch-dispatcher.js",
+  "description": "Enterprise Multi-Brand WhatsApp Integration & Automation Suite for Ritika Jaiswal Fashion, PS DigiLabs, and Creative Monks",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node scripts/batch-dispatcher.js",
-    "send:cloud": "node scripts/cloud-api-sender.js",
-    "extract": "node scripts/extract-contacts.js"
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "test": "node test/simulate-flows.js",
+    "audit:batch": "node scripts/daily-batch-audit.js"
   },
   "keywords": [
     "whatsapp",
-    "whatsapp-automation",
-    "whatsapp-widget",
-    "nextjs",
-    "react",
-    "lead-generation",
-    "meta-cloud-api",
-    "chat-widget",
-    "customer-support"
+    "whatsapp-cloud-api",
+    "meta-graph-api",
+    "automation",
+    "chatbot",
+    "ecommerce",
+    "lead-generation"
   ],
-  "author": "Prithwish Saha <contact@psdigilabs.in>",
-  "license": "MIT",
-  "peerDependencies": {
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0",
-    "next": ">=13.0.0"
+  "author": "Antigravity Engineering",
+  "license": "ISC",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "pino": "^10.4.0",
+    "qrcode": "^1.5.4"
   }
 }

@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: psdigilabs-audit-hub
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    disk:
+      name: psdigilabs-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: PORT
+        value: "3000"
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: AUDIT_CHECKOUT_URL
+        sync: false
+      - key: PAYMENT_WEBHOOK_SECRET
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: PAGESPEED_API_KEY
+        sync: false
+      - key: ENABLE_PAGESPEED
+        value: "false"
